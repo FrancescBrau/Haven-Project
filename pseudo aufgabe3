@@ -1,0 +1,49 @@
+START
+
+  Display "Welcome HAVEN"
+  
+  WHILE (not exiting) DO:
+
+    Display "Please choose an action (Press Enter to confirm):"
+    Display "1. Log In"
+    Display "2. Sign Up"
+    Display "3. Exit"
+    
+    INPUT user_choice
+    
+    SWITCH (user_choice):
+    
+      CASE '1':
+        CALL logIn()
+      
+      CASE '2':
+        CALL signUp()
+      
+      CASE '3':
+        Set exit = true
+        Display "Closing. Thank for use HAVEN!"
+      
+      DEFAULT:
+        Display "Please Log in or Sing up."
+  
+  END WHILE
+
+FUNCTION logIn:
+  Display "Log In"
+  Prompt "Enter your username: "
+  INPUT username
+  Prompt "Enter your password: "
+  INPUT password
+
+END FUNCTION
+
+FUNCTION signUp:
+  Display "Sign Up"
+  Prompt "Enter a new username: "
+  INPUT new_username
+  Prompt "Enter a new password: "
+  INPUT new_password
+  Display "Account created successfully for username: " + new_username
+END FUNCTION
+
+END
