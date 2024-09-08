@@ -1,13 +1,16 @@
 /*void main() {
   print("Hello Haven!");
 }*/
+import 'dart:ffi';
 import 'dart:io';
+import 'dart:math';
+import 'login.dart';
 
 void main() {
   bool exit = false;
   print("Welcome to HAVEN");
 
-  while (!exit) {
+  /* while (!exit) {
     print("Please choose an action (Press Enter to confirm):");
     print("1. Log In");
     print("2. Sign Up");
@@ -51,4 +54,32 @@ void signUp() {
   stdout.write("Enter a new password: ");
   String? newPassword = stdin.readLineSync();
   print("Account created successfully for username: $newUsername");
+}*/
+  while (!exit) {
+    exit = showMenu();
+  }
+}
+
+bool showMenu() {
+  print('1. Log In');
+  print('2. Sign Up');
+  print('3. Exit');
+
+  String? userChoice = stdin.readLineSync();
+
+  switch (userChoice) {
+    case '1':
+      logIn();
+      return true;
+    case '2':
+      signUp();
+      logIn();
+      return true;
+    case '3':
+      print("Closing. Thank you for use HAVEN");
+      return true;
+    default:
+      print("Please, Log In or Sing Up.");
+      return false;
+  }
 }
